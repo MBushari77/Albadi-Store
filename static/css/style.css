@@ -1,0 +1,51 @@
+body{
+	direction: rtl;
+	font-family: 'Droid Arabic Kufi';
+}
+input{
+	outline: none;
+}
+button{
+	cursor: pointer;
+}
+.shadow{
+	box-shadow: 0px 4px 15px -8px;
+}
+
+/* Landing page */
+.landing_page_container{
+	padding-top: 10%
+}
+.login_form{
+	width: 500px;
+	padding: 30px;
+	border-radius: 15px
+}
+.login_form input{
+	width: 50%
+}
+.input_field{
+	padding: 8px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 70%;
+	border-radius: 35px;
+	text-align: right;
+	margin-top: 25px;
+	border: solid lightgray 1px;
+}
+.input_field input{
+	border: none;
+}
+.login_form button{
+	padding: 13px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 70%;
+	border-radius: 35px;
+	margin-top: 25px;
+	margin-bottom: 5px;
+	border: none;
+	background-color: var(--success);
+	color: white;
+}
