@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>معرض الجبل</title>  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/fontello.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+	<center>
+		<nav class="shadow row">
+			<div class="col-9" style="text-align: right;">
+				<button
+					onclick="location.href='/'">الرئيسية</button>
+				<button
+					onclick="location.href='/deal'"
+					>معاملة جديدة</button>
+				<button
+					onclick="location.href='/store'"
+					>المخزن</button>
+				<button
+					onclick="location.href='/pills'"
+					>الفواتير</button>
+				<button
+					onclick="location.href='/cuts'"
+					>المنصرفات</button>
+			</div>
+			<div class="col-3">
+				<h3>معرض الجبل</h3>
+			</div>
+		</nav>
+		<div class="home_actions_container row">
+			
+			<div class="col-6">
+				<button class="home_action_card shadow" 
+					style="background-color: var(--danger)"
+					onclick="location.href='/deal'" 
+				>
+					<div>
+						<h1 class="icon-money"></h1>
+					</div>
+					<div>
+						<i>معاملة جديدة</i>
+					</div>
+				</button>
+			</div>
+
+			<div class="col-6">
+				<button class="home_action_card shadow " 
+					style="background-color: var(--success)"
+					onclick="location.href='/store'" 
+				>
+					<div>
+						<h1 class="icon-cubes"></h1>
+					</div>
+					<div>
+						<i>المخزن</i>
+					</div>
+				</button>
+			</div>
+			
+			<div class="col-6">
+				<button class="home_action_card shadow" 
+					style="background-color: var(--primary)"
+					onclick="location.href='/pills'" 
+				>
+					<div>
+						<h1 class="icon-archive"></h1>
+					</div>
+					<div>
+						<i>الفواتير</i>
+					</div>
+				</button>
+			</div>
+			
+			<div class="col-6">
+				<button class="home_action_card shadow" 
+					style="background-color: var(--warning)"
+					onclick="location.href='/cuts'"
+				>
+					<div>
+						<h1 class="icon-upload"></h1>
+					</div>
+					<div>
+						<i>المنصرفات</i>
+					</div>
+				</button>
+			</div>
+			
+
+		</div>
+	</center>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/script.js"></script>
+</body>
+</html>

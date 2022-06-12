@@ -11,25 +11,29 @@
 </head>
 <body>
 	<center>
-<!-- 		<br><br><br>
-		<h2>البادي للسيراميك</h2> -->
-		<div class="landing_page_container">
-			<div class="login_form shadow">
-				<h3>تسجيل الدخول</h3>
-				<form action="/login" method="POST">
-					<div class="input_field">
-						<i class="icon-user-1"></i>
-						<input type="text"  required placeholder="إسم المستخدم" name="username">
-					</div>
-					<div class="input_field">
-						<i class="icon-lock-2"></i>
-						<input type="password"  required placeholder="الرقم السري" name="password">
-					</div>
-					<div >
-						<button type="submit">دخول</button>
-					</div>
-				</form>
+		<nav class="shadow row">
+			<div class="col-9" style="text-align: right;">
+				<button
+					onclick="location.href='/home'">الرئيسية</button>
+				<button
+					onclick="location.href='/deal'"
+					>معاملة جديدة</button>
+				<button
+					onclick="location.href='/store'"
+					>المخزن</button>
+				<button
+					onclick="location.href='/pills'"
+					>الفواتير</button>
+				<button
+					onclick="location.href='/cuts'"
+					>المنصرفات</button>
 			</div>
+			<div class="col-3">
+				<h3>معرض الجبل</h3>
+			</div>
+		</nav>
+		<div class="store_container">
+			<h1>المخزن</h1>
 		</div>
 	</center>
 
