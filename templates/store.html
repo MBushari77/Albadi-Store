@@ -33,7 +33,44 @@
 			</div>
 		</nav>
 		<div class="store_container">
-			<h1>المخزن</h1>
+			<div>
+				<button class="btn btn-success"
+					onclick="location.href='/newproduct'" 
+				>إضافة منتج جديد <i class="icon-plus-circle"></i></button>
+			</div>
+			{% if products %}
+			<div>
+				<br>
+				<table>
+					<thead>
+						<tr>
+							<th>إسم المنتج</th>
+							<th>سعر المتر</th>
+							<th>الكمية المتوفرة</th>
+							<th>#</th>
+							<th>#</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for pr in products %}
+						<tr>
+							<td>{{ pr.name }}</td>
+							<td>{{ pr.price }}</td>
+							<td>{{ pr.mount }} - متر</td>
+							<td>
+								<button class="edit_product_button btn btn-success">تعديل <i class="icon-pencil-2"></i></button>
+							</td>
+							<td>
+								<button class="edit_product_button btn btn-danger">حزف <i class="icon-cancel-2"></i></button>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% else %}
+			<h3>لا توجد منتجات</h3>
+			{% endif %}
 		</div>
 	</center>
 

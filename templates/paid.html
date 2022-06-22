@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>معرض الجبل</title>  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/fontello.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+	<center>
+		<nav class="shadow row">
+			<div class="col-9" style="text-align: right;">
+				<button
+					onclick="location.href='/home'">الرئيسية</button>
+				<button
+					onclick="location.href='/deal'"
+					>معاملة جديدة</button>
+				<button
+					onclick="location.href='/store'"
+					>المخزن</button>
+				<button
+					onclick="location.href='/pills'"
+					>الفواتير</button>
+				<button
+					onclick="location.href='/cuts'"
+					>المنصرفات</button>
+			</div>
+			<div class="col-3">
+				<h3>معرض الجبل</h3>
+			</div>
+		</nav>
+		<div class="store_container">
+			<div>
+				<h3>الفواتير المدفوعة</h3>
+			</div>
+			<div class="pills_filtering_form">
+				<div class="pills_filtering_form_input">
+					<i>الشهر</i>
+					<select>
+						<option id="option01" value="1">01</option>
+						<option id="option02" value="2">02</option>
+						<option id="option03" value="3">03</option>
+						<option id="option04" value="4">04</option>
+						<option id="option05" value="5">05</option>
+						<option id="option06" value="6">06</option>
+						<option id="option07" value="7">07</option>
+						<option id="option08" value="8">08</option>
+						<option id="option09" value="9">09</option>
+						<option id="option10" value="10">10</option>
+						<option id="option11" value="11">11</option>
+						<option id="option12" value="12">12</option>
+					</select>
+				</div>
+				<div class="pills_filtering_form_input">
+					<i>السنة</i>
+					<input type="number" value="2022" name="">
+				</div>
+				<div class="pills_filtering_form_input">
+					<button>إنتقال</button>
+				</div>
+			</div>
+			<div class="registerd_pills_container">
+				<div class="row registerd_pill_header">
+					<div class="col-4">الإسم</div>
+					<div class="col-3">السعر</div>
+					<div class="col-3">التاريخ</div>
+					<div class="col-2">
+						#
+					</div>
+				</div>
+
+
+				<div class="row registerd_pill">
+					<div class="col-4">محمد إسماعيل البشاري</div>
+					<div class="col-3">12,000 ج</div>
+					<div class="col-3">23/3/2022</div>
+					<div class="col-2">
+						<button>عرض</button>
+					</div>
+				</div>
+				
+
+				<div class="row registerd_pill">
+					<div class="col-4">محمد إسماعيل البشاري</div>
+					<div class="col-3">12,000 ج</div>
+					<div class="col-3">23/3/2022</div>
+					<div class="col-2">
+						<button>عرض</button>
+					</div>
+				</div>
+				
+
+				<div class="row registerd_pill">
+					<div class="col-4">محمد إسماعيل البشاري</div>
+					<div class="col-3">12,000 ج</div>
+					<div class="col-3">23/3/2022</div>
+					<div class="col-2">
+						<button>عرض</button>
+					</div>
+				</div>
+				
+				<div class="row registerd_pill">
+					<div class="col-4">محمد إسماعيل البشاري</div>
+					<div class="col-3">12,000 ج</div>
+					<div class="col-3">23/3/2022</div>
+					<div class="col-2">
+						<button>عرض</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</center>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/script.js"></script>
+</body>
+</html>

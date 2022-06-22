@@ -1,6 +1,9 @@
 from peewee import *
 from model import *
 # User.create(username = 'bushari', name = 'mohammed', password='123')
-users = User.select()
+users = Product.select()
 for u in users:
-	print(u.id)
+	print(u.name)
+	print(u.price)
+	print(u.date)
+	print('___________')

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>معرض الجبل</title>  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/fontello.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+	<center>
+		<nav class="shadow row">
+			<div class="col-9" style="text-align: right;">
+				<button
+					onclick="location.href='/home'">الرئيسية</button>
+				<button
+					onclick="location.href='/deal'"
+					>معاملة جديدة</button>
+				<button
+					onclick="location.href='/store'"
+					>المخزن</button>
+				<button
+					onclick="location.href='/pills'"
+					>الفواتير</button>
+				<button
+					onclick="location.href='/cuts'"
+					>المنصرفات</button>
+			</div>
+			<div class="col-3">
+				<h3>معرض الجبل</h3>
+			</div>
+		</nav>
+
+		<div class="row">
+			<div class="col-6 pill_side_container">
+				<div class="products_container">
+							<div class="row product">
+								<div class="col-6">
+									<i>
+										المنتج
+									</i>
+								</div>
+								<div class="col-2">
+									<i>
+										السعر
+									</i>
+								</div>
+								<div class="col-2">
+									<i>
+										المتبقي
+									</i>
+								</div>
+								<div class="col-2">
+									<i>
+										#
+									</i>
+								</div>
+							</div>
+					{% if products %}
+						{% for pro in products %}
+							<div class="row product">
+								<div class="col-6">
+									<i id="name{{pro.id}}">{{ pro.name }}</i>
+								</div>
+								<div class="col-2">
+									<i id="price{{pro.id}}">{{ pro.price }}</i>
+								</div>
+								<div class="col-2">
+									<i id="mount{{pro.id}}">{{ pro.mount }}</i>
+								</div>
+								<div class="col-2">
+									<button id="addBtn{{ pro.id }}" onclick="addToList({{ pro.id }})">إضافة</button>
+								</div>
+							</div>
+						{% endfor %}
+					{% else %}
+						<h3> لا توجد منتجات </h3>
+					{% endif %}
+
+				</div>
+			</div>
+			<div class="col-6 pill_side_container">
+				<div>
+					<h3>الفاتورة</h3>
+				</div>
+				<div class="pill_owner_field">
+					<div>
+						<i>اسم صاحب الفاتورة</i>
+					</div>
+					<div>
+						<input type="text" id="orderOwner" placeholder="أكتب اسم صاحب الفاتورة" name="">
+					</div>
+				</div>
+				<div id="pill_products_container" class="pill_products_container">
+					<div class="row">
+						<div class="col-5">
+							المنتج
+						</div>
+						<div class="col-3">
+							سعر المتر
+						</div>
+						<div class="col-2">
+							الكمية
+						</div>
+						<div class="col-2">
+						    #    						
+						</div>
+					</div>
+
+					<!-- Products -->
+
+<!-- 					<div id="pill_product" class="row pill_product">
+						<div class="col-6">
+							سيراميك الميدان المصري
+						</div>
+						<div class="col-2">
+							<input type="number" min="0" name="">
+						</div>
+						<div class="col-2">
+							<input type="number" min="0" name="">
+						</div>
+						<div class="col-2">
+							<button class="bill_button">X</button>
+						</div>
+					</div> -->
+
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<button
+							onclick="if (confirm('إتمام المعاملة')) { doTheDeal() }"
+							class="pill_action_button submit_pill"
+						>أتمام المعاملة</button>
+					</div>
+					<div class="col-6">
+						<button 
+							onclick="location.href='/home'" 
+							class="pill_action_button discard_pill"
+						>إلغاء المعاملة</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</center>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/static/js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="/static/js/script.js"></script>
+</body>
+</html>

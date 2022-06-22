@@ -32,65 +32,31 @@
 				<h3>معرض الجبل</h3>
 			</div>
 		</nav>
-		<div class="home_actions_container row">
-			
-			<div class="col-6">
-				<button class="home_action_card shadow" 
-					style="background-color: var(--danger)"
-					onclick="location.href='/deal'" 
-				>
-					<div>
-						<h1 class="icon-money"></h1>
+		<div class="new_cut_form_container">
+			<div class="login_form shadow">
+				<h4>إضافة منتج جديد</h4>
+				<form action="/addproduct" method="POST">
+					
+					<div class="input_field">
+						<i class="icon-user-1"></i>
+						<input type="text"  required placeholder="إسم المنتج" name="name">
 					</div>
-					<div>
-						<i>معاملة جديدة</i>
+					
+					<div class="input_field">
+						<i class="icon-user-1"></i>
+						<input type="number"  required placeholder="سعر المنتج" name="price">
 					</div>
-				</button>
-			</div>
+					
+					<div class="input_field">
+						<i class="icon-user-1"></i>
+						<input type="number"  required placeholder="الكمية" name="mount">
+					</div>
 
-			<div class="col-6">
-				<button class="home_action_card shadow " 
-					style="background-color: var(--success)"
-					onclick="location.href='/store'" 
-				>
-					<div>
-						<h1 class="icon-cubes"></h1>
+					<div >
+						<button type="submit">إضافة</button>
 					</div>
-					<div>
-						<i>المخزن</i>
-					</div>
-				</button>
+				</form>
 			</div>
-			
-			<div class="col-6">
-				<button class="home_action_card shadow" 
-					style="background-color: var(--primary)"
-					onclick="location.href='/pills'" 
-				>
-					<div>
-						<h1 class="icon-archive"></h1>
-					</div>
-					<div>
-						<i>الفواتير</i>
-					</div>
-				</button>
-			</div>
-			
-			<div class="col-6">
-				<button class="home_action_card shadow" 
-					style="background-color: var(--warning)"
-					onclick="location.href='/cuts'"
-				>
-					<div>
-						<h1 class="icon-upload"></h1>
-					</div>
-					<div>
-						<i>المنصرفات</i>
-					</div>
-				</button>
-			</div>
-			
-
 		</div>
 	</center>
 

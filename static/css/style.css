@@ -17,7 +17,7 @@ i{
 	width: 100%;
 }
 .shadow{
-	box-shadow: 0px 3px 5px -3px dimgray;
+	box-shadow: 0px 3px 10px -3px dimgray;
 }
 
 /* Landing page */
@@ -91,4 +91,221 @@ nav button{
 }
 .home_action_card i{
 	font-size: 20px;
+}
+
+/* Store */
+.store_container{
+	padding: 15px;
+}
+.store_container th{
+	width: 200px;
+}
+.store_container tr{
+	height: 50px
+}
+.edit_product_button{
+	width: 100px;
+
+}
+/* Deal CSS */
+.pill_side_container{
+	padding: 50px;
+}
+.products_container{
+	border: solid lightgray 1px;
+	border-bottom: none;
+	/*background-color: gray;*/
+	height: 70vh;
+	overflow-x: scroll;
+	/*border-radius: 15px;*/
+	direction: ltr;
+}
+.product{
+	border-bottom: solid lightgray 1px;
+	padding: 5px;
+	direction: rtl;
+}
+.product i{
+	height: 100%;
+	padding: 10px;
+	display: inline-block;
+}
+.product button{
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-radius: 15px;
+	color: white;
+	background-color: var(--success);
+}
+
+.pill_products_container{
+	text-align: right;
+}
+.pill_product{
+	text-align: right;
+	border: solid lightgray 1px;
+	padding: 5px;
+}
+.pill_product input{
+	width: 100%;
+}
+.bill_button{
+	width: 100%;
+	height: 100%;
+	background-color: var(--danger);
+	border: none;
+	color: white;
+	border-radius: 15px;
+}
+.pill_action_button{
+	width: 70%;
+	margin: 15px;
+	border: none;
+	color: white;
+	border-radius: 15px;
+	height: 35px;
+}
+.submit_pill{
+	background-color: var(--success);
+}
+.discard_pill{
+	background-color: var(--danger);
+}
+
+.pill_main_buttons{
+	width: 60%;
+	margin-top: 15%;
+	height: 150px;
+	border: none;
+	border-radius: 15px;
+	color: white;
+	font-size: 25px;
+}
+.to_paid_pills{
+	background-color: var(--success);
+}
+.to_waiting_pills{
+	background-color: var(--warning);
+}
+.registerd_pills_container{
+	border: solid lightgray 1px;
+}
+.registerd_pill{
+	padding: 20px;
+	text-align: right;
+}
+.registerd_pill button{
+	width: 100px;
+	height: 100%;
+	background-color: var(--primary);
+	border: none;
+	border-radius: 15px;
+	height: 35px;
+	color: white;
+	margin-top: -5px;
+}
+.registerd_pill_header{
+	padding: 20px;
+	text-align: right;
+}
+.pills_filtering_form_input{
+	display: inline-block;
+	margin: 10px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+.pills_filtering_form_input input{
+	width: 100px;
+}
+.pills_filtering_form_input select{
+	width: 100px;
+}
+.pills_filtering_form_input button{
+	width: 100px;
+	height: 35px;
+	border: none;
+	background-color: var(--primary);
+	color: white;
+	border-radius: 15px;
+}
+.pill_owner_field{
+	text-align: right;
+	width: 90%;
+}
+.pill_owner_field input{
+	width: 100%;
+	border: solid lightgray 1px;
+	padding: 5px;
+	border-radius: 15px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.registerd_pill:nth-child(odd){
+	background-color: whitesmoke;
+}
+.registerd_pill:nth-child(even){
+	border-top: solid lightgray 1px;
+	border-bottom: solid lightgray 1px;
+}
+.cut_container{
+	border: solid lightgray 1px;
+	padding: 20px;
+}
+.cut_container button{
+	width: 100px;
+	height: 35px;
+	border: none;
+	border-radius: 15px;
+	background-color: var(--danger);
+	color: white;
+}
+.cut_container:nth-child(odd){
+	background-color: whitesmoke;
+}
+.new_cut_form_container{
+	padding: 5%;
+}
+.new_cut_button{
+	width: 200px;
+	height: 40px;
+	border: none;
+	border-radius: 15px;
+	background-color: var(--success);
+	color: white;
+	margin: 10px;
+	margin-bottom: 20px;
+}
+.cut_form textarea{
+	max-width: 500px;
+	min-width: 500px;
+	max-height: 200px;
+	min-height: 200px;
+	border: solid lightgray 1px;
+	border-radius: 15px;
+	padding: 15px;
+}
+.cut_form input{
+	width: 150px;
+	border: solid lightgray 1px;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 15px;
+	direction: ltr;
+	text-align: center;
+}
+.cut_form button{
+	width: 250px;
+	height: 40px;
+	padding: 5px;
+	border: none;
+	border-radius: 15px;
+	background-color: var(--success);
+	color: white;
+}
+.product{
+	text-align: right;
 }
