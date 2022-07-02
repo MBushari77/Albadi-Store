@@ -40,62 +40,34 @@
 				<button onclick="location.href='/newcut'" class="new_cut_button shadow"> إضافة منصرفة <i class="icon-plus-circle"></i></button>
 			</div>
 			<div class="pills_filtering_form">
-				<div class="pills_filtering_form_input">
-					<i>الشهر</i>
-					<select>
-						<option id="option01" value="1">01</option>
-						<option id="option02" value="2">02</option>
-						<option id="option03" value="3">03</option>
-						<option id="option04" value="4">04</option>
-						<option id="option05" value="5">05</option>
-						<option id="option06" value="6">06</option>
-						<option id="option07" value="7">07</option>
-						<option id="option08" value="8">08</option>
-						<option id="option09" value="9">09</option>
-						<option id="option10" value="10">10</option>
-						<option id="option11" value="11">11</option>
-						<option id="option12" value="12">12</option>
-					</select>
-				</div>
-				<div class="pills_filtering_form_input">
-					<i>السنة</i>
-					<input type="number" value="2022" name="">
-				</div>
-				<div class="pills_filtering_form_input">
-					<button>إنتقال</button>
-				</div>
+				<form action="/cuts" method="POSt">
+					<div class="pills_filtering_form_input">
+						<input type="date" id="dateselector" value="{{ datentime }}" name="datentime">
+						<button>إنتقال</button>
+					</div>
+				</form>
 			</div>
 			<div class="cuts_container">
 
-				<div class="cut_container row">
-					<div class="col-9">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-					<div class="col-2">2022/13/6</div>
-					<div class="col-1">
-						<button>X</button>
-					</div>
-				</div>
+				{% if cuts %}
+					{% for cut in cuts %}
+						<div class="cut_container row">
+							<div class="col-7">
+								{{ cut.title }}
+							</div>
+							<div class="col-2">
+								{{ cut.price }} - ج
+							</div>
+							<div class="col-2">{{ cut.time }} - {{ cut.date }}</div>
+							<div class="col-1">
+								<button onclick="deleteCut({{ cut.id }})">X</button>
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					<h3>لا توجد متصرفات</h3>
+				{% endif %}
 				
-				<div class="cut_container row">
-					<div class="col-9">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-					<div class="col-2">2022/13/6</div>
-					<div class="col-1">
-						<button>X</button>
-					</div>
-				</div>
 
 			</div>
 		</div>

@@ -255,6 +255,9 @@ nav button{
 	border: solid lightgray 1px;
 	padding: 20px;
 }
+.cut_container div{
+	text-align: right;
+}
 .cut_container button{
 	width: 100px;
 	height: 35px;
@@ -262,6 +265,13 @@ nav button{
 	border-radius: 15px;
 	background-color: var(--danger);
 	color: white;
+}
+#dateselector{
+	display: inline-block;
+	height: 35px;
+	border: solid lightgray 1px;
+	border-radius: 15px;
+	width: 150px;
 }
 .cut_container:nth-child(odd){
 	background-color: whitesmoke;

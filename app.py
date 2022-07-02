@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, make_response
 from model import *
+from flask_cors import CORS
+import datetime as dt
 # from dbf import *
 
 app = Flask(__name__)
+CORS(app)
 
 def func():
 	response = make_response( render_template() )
@@ -93,14 +96,47 @@ def waiting():
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 """
 # Cuts route
-@app.route('/cuts')
+@app.route('/cuts', methods=['GET', 'POST'])
 def cuts():
-	return render_template('cuts.html')
+	datentime = str(dt.datetime.now())[0:10]
+	year = str(dt.datetime.now())[0:4]
+	month = str(dt.datetime.now())[5:7]
+	if request.method == 'POST':
+		print('inside method post')
+		datentime = request.form['datentime']
+		print(datentime)
+		year = datentime[0:4]
+		month = datentime[5:7]
+	print(year, month)
+	cuts = Cut.select().where((Cut.year == year) and  (Cut.month == month))
+	print(cuts)
+	return render_template('cuts.html', cuts=cuts, datentime=datentime)
 
 # New cut
 @app.route('/newcut')
 def newcut():
 	return render_template('newcut.html')
+
+@app.route('/addnewcut', methods=['GET', 'POST'])
+def addnewcut():
+	if request.method == 'POST':
+		title = request.form['title']
+		price = request.form['price']
+		Cut.create(
+			title=title,
+			price=price,
+			date=str(dt.datetime.now())[0:10],
+			time=str(dt.datetime.now())[11:16],
+			month=str(dt.datetime.now())[5: 7],
+			year=str(dt.datetime.now())[0:4]
+		)
+		return redirect(url_for('cuts'))
+
+# Delete a Cut 
+@app.route('/deletecut/<int:id>')
+def deletecut(id):
+	Cut.delete().where(Cut.id == id).execute();
+	return redirect(url_for('cuts'))
 
 
 
@@ -122,7 +158,7 @@ def store():
 def newproduct():
 	return render_template('newproduct.html')
 
-@app.route('/addproduct', methods=['POST', 'GET'])
+@app.route('/addproduct', methods=['GET', 'POST'])
 def addproduct():
 	if request.method == 'POST':
 		name = request.form['name']
@@ -135,11 +171,20 @@ def addproduct():
 			date=str(datetime.datetime.now())[0:16]
 		)
 		return redirect(url_for('store'))
-	
+
+# Delete a Product from the store
+@app.route('/deleteproduct/<int:id>')
+def deleteProduct(id):
+	Product.delete().where(Product.id == id).execute();
+	return redirect(url_for('store'))
+
+
 
 
 # Logout route
-
+@app.route('/logout')
+def logout():
+	return 'Loged out'
 
 
 if __name__ == '__main__':

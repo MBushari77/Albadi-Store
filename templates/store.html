@@ -61,7 +61,9 @@
 								<button class="edit_product_button btn btn-success">تعديل <i class="icon-pencil-2"></i></button>
 							</td>
 							<td>
-								<button class="edit_product_button btn btn-danger">حزف <i class="icon-cancel-2"></i></button>
+								<button class="edit_product_button btn btn-danger"
+									onclick="deleteProduct( {{pr.id}} )" 
+								>حزف <i class="icon-cancel-2"></i></button>
 							</td>
 						</tr>
 						{% endfor %}

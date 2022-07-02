@@ -34,13 +34,13 @@
 		</nav>
 		<div class="new_cut_form_container">
 			<div class="cut_form">
-				<form>
+				<form action="/addnewcut" method="POST">
 					<div>
-						<textarea required="" placeholder="حول المنصرفة"></textarea>
+						<textarea required="" placeholder="حول المنصرفة" name="title"></textarea>
 					</div>
 					<div>
 						<i>قيمة المنصرفة</i>
-						<input type="number" required="" min="1" value="0" name="">
+						<input type="number" required="" min="1" value="0" name="price">
 					</div>
 					<div>
 						<button type="submit">حفظ</button>

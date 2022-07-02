@@ -49,7 +49,6 @@ function doTheDeal(){
 			type: "POST",
 			data: data,
 			dataType: 'json',
-			contentType: 'application/json;charset=UTF-8',
 			success: function(data) {
 				retData = data;
 			}
@@ -66,4 +65,12 @@ function convertToJson(id){
 		mount: Number(document.querySelector("#cartProMount"+id).value)
 	}
 	return temp
+}
+
+function deleteProduct(id){
+	location.href='/deleteproduct/' + id;
+}
+
+function deleteCut(id){
+	location.href='/deletecut/' + id;
 }

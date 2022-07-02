@@ -25,10 +25,24 @@ class Product(Model):
 	class Meta:
 		database = db
 
+
+# Cuts model
+class Cut(Model):
+	title = CharField()
+	price = IntegerField()
+	date = CharField()
+	month = CharField()
+	year = CharField()
+	time = CharField()
+
+
+	class Meta:
+		database = db
+
 #User.create(name = '', name = '', password='')
 
 def initialize_db():
 	db.connect()
-	db.create_tables([User, Product], safe = True)
+	db.create_tables([User, Product, Cut], safe = True)
 
 initialize_db()
