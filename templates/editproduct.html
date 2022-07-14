@@ -32,50 +32,46 @@
 				<h3>معرض الجبل</h3>
 			</div>
 		</nav>
-		<div class="store_container">
-			<div>
-				<h3>الفواتير  المدفوعة</h3>
-			</div>
-			<div class="pills_filtering_form">
-				<form action="/paid" method="POST">
-					<div class="pills_filtering_form_input">
-						<input type="date" id="dateselector" value="{{ datentime }}" name="datentime">
-						<button>إنتقال</button>
+		<div class="new_cut_form_container">
+			<div class="login_form shadow">
+				<h4 style="margin-bottom: 5%">تعديل منتج </h4>
+				{% if product %}
+				{% for pro in product %}
+				<form action="/updateproduct" method="POST">
+					
+					<div style="text-align: right; width: 60%">
+						<i>الأسم</i>
+					</div>
+
+					<div class="input_field">
+						<i class="icon-user-1"></i>
+						<input type="text" value="{{ pro.name }}" required placeholder="إسم المنتج" name="name">
+						<input type="number" hidden="" value="{{ pro.id }}" name="id">
+					</div>
+					
+					<div style="text-align: right; width: 60%">
+						<i>السعر</i>
+					</div>
+
+					<div class="input_field">
+						<i class="icon-user-1"></i>
+						<input type="number" value="{{ pro.price }}" required placeholder="سعر المنتج" name="price">
+					</div>
+					
+					<div style="text-align: right; width: 60%">
+						<i>الكمية</i>
+					</div>
+					<div class="input_field">
+						<i class="icon-user-1"></i>
+						<input type="number" value="{{ pro.mount }}" required placeholder="الكمية" name="mount">
+					</div>
+
+					<div >
+						<button type="submit">تعديل</button>
 					</div>
 				</form>
-			</div>
-			<div class="cuts_container">
-			<div class="registerd_pills_container">
-				<div class="row registerd_pill_header">
-					<div class="col-4">الإسم</div>
-					<div class="col-3">السعر</div>
-					<div class="col-2">التاريخ</div>
-					<div class="col-3">
-						العمليات
-					</div>
-				</div>
-
-
-				{% if pills %}
-				{% for pill in pills %}
-				<div class="row registerd_pill">
-					<div class="col-4">{{ pill.customerName }}</div>
-					<div class="col-3">{{ pill.price }} ج</div>
-					<div class="col-2">{{ pill.date }}</div>
-					<div class="col-1">
-						<button onclick="showpill({{ pill.id }})">عرض</button>
-					</div>
-					<div class="col-1">
-						<button onclick="deletePill({{ pill.id }})" style="background-color: var(--danger)">حزف</button>
-					</div>
-				</div>
 				{% endfor %}
-				{% else %}
-				<h3>لا توجد فواتير</h3>
 				{% endif %}
-				
-
-
 			</div>
 		</div>
 	</center>

@@ -37,79 +37,47 @@
 				<h3>الفواتير الغير المدفوعة</h3>
 			</div>
 			<div class="pills_filtering_form">
-				<div class="pills_filtering_form_input">
-					<i>الشهر</i>
-					<select>
-						<option id="option01" value="1">01</option>
-						<option id="option02" value="2">02</option>
-						<option id="option03" value="3">03</option>
-						<option id="option04" value="4">04</option>
-						<option id="option05" value="5">05</option>
-						<option id="option06" value="6">06</option>
-						<option id="option07" value="7">07</option>
-						<option id="option08" value="8">08</option>
-						<option id="option09" value="9">09</option>
-						<option id="option10" value="10">10</option>
-						<option id="option11" value="11">11</option>
-						<option id="option12" value="12">12</option>
-					</select>
-				</div>
-				<div class="pills_filtering_form_input">
-					<i>السنة</i>
-					<input type="number" value="2022" name="">
-				</div>
-				<div class="pills_filtering_form_input">
-					<button>إنتقال</button>
-				</div>
+				<form action="/waiting" method="POSt">
+					<div class="pills_filtering_form_input">
+						<input type="date" id="dateselector" value="{{ datentime }}" name="datentime">
+						<button>إنتقال</button>
+					</div>
+				</form>
 			</div>
+			<div class="cuts_container">
 			<div class="registerd_pills_container">
 				<div class="row registerd_pill_header">
 					<div class="col-4">الإسم</div>
 					<div class="col-3">السعر</div>
-					<div class="col-3">التاريخ</div>
-					<div class="col-2">
-						#
+					<div class="col-2">التاريخ</div>
+					<div class="col-3">
+						العمليات
 					</div>
 				</div>
 
 
+				{% if pills %}
+				{% for pill in pills %}
 				<div class="row registerd_pill">
-					<div class="col-4">محمد إسماعيل البشاري</div>
-					<div class="col-3">12,000 ج</div>
-					<div class="col-3">23/3/2022</div>
-					<div class="col-2">
-						<button>عرض</button>
+					<div class="col-4">{{ pill.customerName }}</div>
+					<div class="col-3">{{ pill.price }} ج</div>
+					<div class="col-2">{{ pill.date }}</div>
+					<div class="col-1">
+						<button onclick="pillPaid({{ pill.id }})" style="background-color: var(--success)">دفع </button>
+					</div>
+					<div class="col-1">
+						<button onclick="showpill({{ pill.id }})">عرض</button>
+					</div>
+					<div class="col-1">
+						<button onclick="deletePill({{ pill.id }})" style="background-color: var(--danger)">حزف</button>
 					</div>
 				</div>
+				{% endfor %}
+				{% else %}
+				<h3>لا توجد فواتير</h3>
+				{% endif %}
 				
 
-				<div class="row registerd_pill">
-					<div class="col-4">محمد إسماعيل البشاري</div>
-					<div class="col-3">12,000 ج</div>
-					<div class="col-3">23/3/2022</div>
-					<div class="col-2">
-						<button>عرض</button>
-					</div>
-				</div>
-				
-
-				<div class="row registerd_pill">
-					<div class="col-4">محمد إسماعيل البشاري</div>
-					<div class="col-3">12,000 ج</div>
-					<div class="col-3">23/3/2022</div>
-					<div class="col-2">
-						<button>عرض</button>
-					</div>
-				</div>
-				
-				<div class="row registerd_pill">
-					<div class="col-4">محمد إسماعيل البشاري</div>
-					<div class="col-3">12,000 ج</div>
-					<div class="col-3">23/3/2022</div>
-					<div class="col-2">
-						<button>عرض</button>
-					</div>
-				</div>
 
 			</div>
 		</div>

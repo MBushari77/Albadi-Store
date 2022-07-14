@@ -41,20 +41,22 @@ function doTheDeal(){
 	for(i = 0; i < idsInputs.length; i++){
 		data.push(convertToJson(Number(idsInputs[i].value)))
 	}
-	console.log(data)
-	let retData;
-	$.ajax(
+	// console.log(data)
+	var retData;
+	$.ajax("/dothedeal",
 		{
-			url: "/dothedeal",
 			type: "POST",
-			data: data,
+			data: JSON.stringify(data),
+			contentType: 'application/json',
 			dataType: 'json',
 			success: function(data) {
-				retData = data;
+				if (data.success == true) {
+					location.href = '/waiting'
+				}
 			}
 		}
 	);
-	console.log(retData)
+
 }
 
 function convertToJson(id){
@@ -68,9 +70,50 @@ function convertToJson(id){
 }
 
 function deleteProduct(id){
-	location.href='/deleteproduct/' + id;
+	location.href = '/deleteproduct/' + id;
 }
 
 function deleteCut(id){
-	location.href='/deletecut/' + id;
+	location.href = '/deletecut/' + id;
+}
+
+function deletePill(id){
+	location.href = '/deletepill/' + id;
+}
+function showpill(id){
+	location.href = '/showpill/' + id;
+}
+function pillPaid(id){
+	location.href = '/pillpaid/' + id;
+}
+
+function retValId(str, id){
+	return Number(document.querySelector("#"+ str + id).value)
+}
+function updatePill(pillId){
+	let idsInputs = document.querySelectorAll("#productid");
+	let ids = []
+	let data = [{pillid: pillId}]
+
+	for(let i = 0; i < idsInputs.length; i++){
+		// ids.push(Number(idsInputs[i].value));
+		let id = Number(idsInputs[i].value);
+		data.push({id: id, mount: retValId("productmount", id), price: retValId("productprice", id)})
+	}
+
+	var retData;
+	$.ajax("/updatepill",
+		{
+			type: "POST",
+			data: JSON.stringify(data),
+			contentType: 'application/json',
+			dataType: 'json',
+			success: function(data) {
+				if (data.success == true) {
+					location.href = '/waiting'
+				}
+			}
+		}
+	);
+
 }

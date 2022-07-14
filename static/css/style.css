@@ -1,6 +1,6 @@
 body{
 	direction: rtl;
-	font-family: 'Droid Arabic Kufi';
+	font-family: 'Cairo';
 	min-width: 1000px;
 	cursor: default;
 }
@@ -39,7 +39,7 @@ i{
 	width: 70%;
 	border-radius: 35px;
 	text-align: right;
-	margin-top: 25px;
+	margin-bottom: 15px;
 	border: solid lightgray 1px;
 }
 .input_field input{
@@ -72,10 +72,12 @@ nav button{
 /* Home */
 .home_actions_container{
 	padding: 5%;
+	padding-top: 2%;
 }
 .home_action_card{
 	width: 90%;
-	margin: 20px;
+	max-width: 500px;
+	margin: 10px;
 	border-radius: 15px;
 	padding: 15px;
 	background-color: gray;
@@ -318,4 +320,32 @@ nav button{
 }
 .product{
 	text-align: right;
+}
+.show_pill_container{
+	width: 700px;
+	/*background-color: green;*/
+	text-align: right;
+	padding-top: 40px;
+}
+.show_pill_container table{
+	width: 100%;
+}
+.show_pill_table_container td{
+	width: 33%;
+	font-size: 20px;
+	border: solid lightgray 1px;
+	padding: 10px;
+}
+.show_pill_container button{
+	width: 30%;
+	margin: 10px;
+	border: none;
+	font-size: 18px;
+}
+.paidproducts_container{
+	text-align: right;
+	width: 70%;
+	border: solid lightgray 1px;
+	margin: 1px;
+	padding: 10px; 
 }

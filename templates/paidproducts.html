@@ -34,49 +34,58 @@
 		</nav>
 		<div class="store_container">
 			<div>
-				<h3>الفواتير  المدفوعة</h3>
+				<h3>الجرد الشهري</h3>
 			</div>
 			<div class="pills_filtering_form">
-				<form action="/paid" method="POST">
+				<form action="/paidproducts/{{productID}}" method="POSt">
 					<div class="pills_filtering_form_input">
 						<input type="date" id="dateselector" value="{{ datentime }}" name="datentime">
 						<button>إنتقال</button>
 					</div>
 				</form>
 			</div>
-			<div class="cuts_container">
-			<div class="registerd_pills_container">
-				<div class="row registerd_pill_header">
-					<div class="col-4">الإسم</div>
-					<div class="col-3">السعر</div>
-					<div class="col-2">التاريخ</div>
-					<div class="col-3">
-						العمليات
+			<!-- Header -->
+			<div class="paidproducts_container">
+				<div class="paid_details row">
+					<div class="col-6">
+						<i style="font-size: 19px;">إسم المنتج</i>
+					</div>
+					<div class="col-6">
+						<i style="font-size: 19px;">الكمية المباعة بالمتر</i>
 					</div>
 				</div>
-
-
-				{% if pills %}
-				{% for pill in pills %}
-				<div class="row registerd_pill">
-					<div class="col-4">{{ pill.customerName }}</div>
-					<div class="col-3">{{ pill.price }} ج</div>
-					<div class="col-2">{{ pill.date }}</div>
-					<div class="col-1">
-						<button onclick="showpill({{ pill.id }})">عرض</button>
-					</div>
-					<div class="col-1">
-						<button onclick="deletePill({{ pill.id }})" style="background-color: var(--danger)">حزف</button>
-					</div>
-				</div>
-				{% endfor %}
-				{% else %}
-				<h3>لا توجد فواتير</h3>
-				{% endif %}
-				
-
-
 			</div>
+			<!-- EndOfHeader -->
+
+			<!-- Body -->
+			{% if mount %}
+			<div class="paidproducts_container">
+				<div class="paid_details row">
+					<div class="col-6">
+						{% if name %}
+						<i style="font-size: 19px;">{{ name }}</i>
+						{% else %}
+						<i style="font-size: 19px;">لايوجد منتاج بهذا الأسم</i>
+						{% endif %}
+					</div>
+					<div class="col-6">
+						{% if mount %}
+						<i style="font-size: 19px;">{{ mount }} - متر</i>
+						{% else %}
+						<i style="font-size: 19px;">0</i>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<!-- EndOfBody -->
+			{% else %}
+			<!-- If there is no deals -->
+			<div>
+				<h2>لاتوجد مبيعات في هذا الشهر</h2>
+			</div>
+			<!-- end of "if" -->
+			{% endif %}
+
 		</div>
 	</center>
 

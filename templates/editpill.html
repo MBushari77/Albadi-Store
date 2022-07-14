@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>معرض الجبل</title>  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/fontello.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+	<center>
+		<nav class="shadow row">
+			<div class="col-9" style="text-align: right;">
+				<button
+					onclick="location.href='/home'">الرئيسية</button>
+				<button
+					onclick="location.href='/deal'"
+					>معاملة جديدة</button>
+				<button
+					onclick="location.href='/store'"
+					>المخزن</button>
+				<button
+					onclick="location.href='/pills'"
+					>الفواتير</button>
+				<button
+					onclick="location.href='/cuts'"
+					>المنصرفات</button>
+			</div>
+			<div class="col-3">
+				<h3>معرض الجبل</h3>
+			</div>
+		</nav>
+		<div class="show_pill_container">
+
+			{% if pill %}
+				{% for p in pill %}
+					<h2> {{ p.customerName }} </h2>
+					<table class="show_pill_table_container">
+							<tr>
+								<td> الأسم </td>
+								<td> السعر بالجنية </td>
+								<td> الكمية  بالمتر</td>
+							</tr>
+							{% for product in p.data %}
+							<tr>
+								<td> {{ product.name }} </td>
+								<td>
+									<input type="number" id="productid" value="{{ product.id }}" hidden="" name="">
+									<input type="number" id="productprice{{product.id}}" value="{{ product.price }}" name=""> 
+								</td>
+								<td>  <input type="number" id="productmount{{product.id}}" value="{{ product.mount }}" name=""> </td>
+							</tr>
+							{% endfor %}
+						</tr>
+					</table>
+					<div>
+						<br>
+						<h4>
+							 الإجمالي - {{ p.price }} ج
+						</h4>
+						{% if p.status %}
+						<h3> الفاتورة مدفوعة </h3>
+						{% else %}
+						<h3> الفاتورة غير مدفوعة </h3>
+						{% endif %}
+					</div>
+					<div>
+						<center>
+							<button onclick="updatePill({{ p.id }})" class="btn btn-success">حفظ</button>
+							<button type="button" onclick="location.href = '/pills'" class="btn btn-danger">إلغاء</button>
+						</center>
+					</div>
+				{% endfor %}
+			{% else %}
+			<h1>خطاء</h1>
+			{% endif %}
+		</div>
+	</center>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/script.js"></script>
+</body>
+</html>

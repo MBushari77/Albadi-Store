@@ -32,52 +32,51 @@
 				<h3>معرض الجبل</h3>
 			</div>
 		</nav>
-		<div class="store_container">
-			<div>
-				<button class="btn btn-success"
-					onclick="location.href='/newproduct'" 
-				>إضافة منتج جديد <i class="icon-plus-circle"></i></button>
-			</div>
-			{% if products %}
-			<div>
-				<br>
-				<table>
-					<thead>
+		<div class="show_pill_container">
+
+			{% if pill %}
+				{% for p in pill %}
+				<h2> {{ p.customerName }} </h2>
+				<table class="show_pill_table_container">
 						<tr>
-							<th>إسم المنتج</th>
-							<th>سعر المتر</th>
-							<th>الكمية المتوفرة</th>
-							<th>#</th>
-							<th>#</th>
-							<th>#</th>
+							<td> الأسم </td>
+							<td> السعر بالجنية </td>
+							<td> الكمية  بالمتر</td>
 						</tr>
-					</thead>
-					<tbody>
-						{% for pr in products %}
+						{% for product in p.data %}
 						<tr>
-							<td>{{ pr.name }}</td>
-							<td>{{ pr.price }}</td>
-							<td>{{ pr.mount }} - متر</td>
-							<td>
-								<button onclick="location.href='/editproduct/' + {{ pr.id }}" class="edit_product_button btn btn-success">تعديل <i class="icon-pencil-2"></i></button>
-							</td>
-							<td>
-								<button class="edit_product_button btn btn-danger"
-									onclick="deleteProduct( {{pr.id}} )" 
-								>حزف <i class="icon-cancel-2"></i></button>
-							</td>
-							<td>
-								<button class="edit_product_button btn btn-primary"
-									onclick="location.href='/paidproducts/{{pr.id}}'" 
-								>الجرد <i class="icon-list"></i></button>
-							</td>
+							<td> {{ product.name }} </td>
+							<td> {{ product.price }} </td>
+							<td> {{ product.mount }} </td>
 						</tr>
 						{% endfor %}
-					</tbody>
+					</tr>
 				</table>
-			</div>
+				<div>
+					<br>
+					<h4>
+						 الإجمالي - {{ p.price }} ج
+					</h4>
+					{% if p.status %}
+					<h3> الفاتورة مدفوعة </h3>
+					{% else %}
+					<h3> الفاتورة غير مدفوعة </h3>
+					{% endif %}
+				</div>
+				<div>
+					<center>
+						{% if not p.status %}
+						<div>
+							<button onclick="location.href='/editpill/' + {{ p.id }}" class="btn btn-primary">تعديل</button>
+						</div>
+						<button onclick="pillPaid({{ p.id }})" class="btn btn-success">دفع</button>
+						{% endif %}
+						<button onclick="deletePill({{ p.id }})" class="btn btn-danger">حزف</button>
+					</center>
+				</div>
+				{% endfor %}
 			{% else %}
-			<h3>لا توجد منتجات</h3>
+			<h1>خطاء</h1>
 			{% endif %}
 		</div>
 	</center>
