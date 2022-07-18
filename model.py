@@ -58,6 +58,7 @@ class Pill(Model):
 	price = IntegerField()
 	month = CharField()
 	year = CharField()
+	comment = CharField()
 	date = CharField()
 	status = BooleanField(default=False)
 	

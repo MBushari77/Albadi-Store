@@ -349,3 +349,13 @@ nav button{
 	margin: 1px;
 	padding: 10px; 
 }
+.footer{
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+	text-align: center;
+}
+.footer p{
+	font-size: 12px;
+	margin: 3px;
+}

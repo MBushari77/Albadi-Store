@@ -90,11 +90,16 @@ def dothedeal():
 		data = request.get_json(force=True)
 		# print("data ###########################################")
 		customerName = data[0]['name']
+		comment = data[0]['comment']
 		price = 0
+		if comment == '':
+			comment = 'No comments'
+			pass
 		for i in data[1:]:
 			price += i['price'] * i['mount']
 		Pill.create(
 			customerName = customerName,
+			comment = comment,
 			data = data[1:],
 			price = price,
 			month = str(dt.datetime.now())[5:7],
@@ -112,7 +117,23 @@ def dothedeal():
 
 		# print("data ###########################################")
 		return jsonify({'success': True})
-		
+
+
+@app.route('/comment/<int:pid>')
+def comment(pid):
+	pill = Pill.select().where(Pill.id == pid).get()
+	comment = pill.comment
+	return render_template('/editcomment.html', pid=pid, comment=comment)
+
+@app.route('/editcomment/<int:pid>', methods=['GET', 'POST'])
+def editcomment(pid):
+	if request.method == 'POST':
+		comment = request.form['comment']
+		pill = Pill.select().where(Pill.id == pid).get()
+		pill.comment = comment
+		pill.save()
+		return redirect(url_for('pills'))
+
 
 
 """

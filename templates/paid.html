@@ -44,11 +44,15 @@
 					</div>
 				</form>
 			</div>
+			<div>
+				<h5>إجمالي الأمتار المباعة في الشهر : <i id="totalMount"></i> متر</h5>
+			</div>
 			<div class="cuts_container">
 			<div class="registerd_pills_container">
 				<div class="row registerd_pill_header">
-					<div class="col-4">الإسم</div>
-					<div class="col-3">السعر</div>
+					<div class="col-2">الإسم</div>
+					<div class="col-3">الكمية</div>
+					<div class="col-2">السعر</div>
 					<div class="col-2">التاريخ</div>
 					<div class="col-3">
 						العمليات
@@ -59,8 +63,13 @@
 				{% if pills %}
 				{% for pill in pills %}
 				<div class="row registerd_pill">
-					<div class="col-4">{{ pill.customerName }}</div>
-					<div class="col-3">{{ pill.price }} ج</div>
+					<div class="col-2">{{ pill.customerName }}</div>
+					<div class="col-3">
+						{% for pro in pill.data %}
+							<div><i id="mount">{{ pro.mount }}</i> : {{ pro.name }}</div>
+						{% endfor %}
+					</div>
+					<div class="col-2">{{ pill.price }} ج</div>
 					<div class="col-2">{{ pill.date }}</div>
 					<div class="col-1">
 						<button onclick="showpill({{ pill.id }})">عرض</button>
@@ -83,5 +92,8 @@
 	<!-- Scripts -->
 	<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="/static/js/script.js"></script>
+	<script type="text/javascript">
+		countMount()
+	</script>
 </body>
 </html>

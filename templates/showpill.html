@@ -57,6 +57,12 @@
 					<h4>
 						 الإجمالي - {{ p.price }} ج
 					</h4>
+					<p>
+						 الملاحظات - {{ p.comment }}  <button 
+						 class="btn btn-warning"
+						 onclick="location.href='/comment/{{ p.id }}'" 
+						 >تعديل الملاحظة</button>
+					</p>
 					{% if p.status %}
 					<h3> الفاتورة مدفوعة </h3>
 					{% else %}

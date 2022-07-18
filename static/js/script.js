@@ -31,7 +31,7 @@ function removeFromList(id){
 
 function doTheDeal(){
 	let arr =[];
-	let data = [{name: document.querySelector("#orderOwner").value}]
+	let data = [{name: document.querySelector("#orderOwner").value, comment: document.querySelector("#comment").value}]
 	if (data[0].name == "") {
 		$('#orderOwner').css({'border':"solid red 2px"})
 		return;
@@ -116,4 +116,13 @@ function updatePill(pillId){
 		}
 	);
 
+}
+
+function countMount(){
+	let mountsElements = document.querySelectorAll("#mount");
+	let totalMount = 0
+	for (let i = 0; i < mountsElements.length; i++){
+		totalMount += Number(mountsElements[i].textContent)
+	}
+	document.querySelector("#totalMount").textContent = totalMount;
 }
